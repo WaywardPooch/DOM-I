@@ -58,10 +58,12 @@ navLogo.setAttribute("src", siteContent.nav["img-src"]);
 // Create two additional nav links
 const addedItem1 = document.createElement("a");
 addedItem1.textContent = "Test1";
+addedItem1.href = "#";
 nav.prepend(addedItem1);
 
 const addedItem2 = document.createElement("a");
 addedItem2.textContent = "Test2";
+addedItem2.href = "#";
 nav.appendChild(addedItem2);
 
 // Create an array from old and new nav links
@@ -86,7 +88,8 @@ const ctaButton = document.querySelector(".cta .cta-text button");
 
 // Assign the CTA contents to provided values
 ctaImage.setAttribute("src", siteContent.cta["img-src"]);
-ctaTitle.textContent = siteContent.cta.h1;
+const ctaMultiRow = siteContent.cta.h1.split(" ");
+ctaTitle.innerHTML = `${ctaMultiRow[0]} <br/> ${ctaMultiRow[1]} <br/> ${ctaMultiRow[2]}`;
 ctaButton.textContent = siteContent.cta.button;
 
 // ========== MAIN CONTENT ==========
@@ -181,10 +184,19 @@ const sectionContact = [
 ];
 
 // Fill in the contact info from siteContent using a loop
-sectionContact.forEach(
-  (info, index) =>
-    (info.textContent = Object.values(siteContent.contact)[index])
-);
+sectionContact.forEach((info, index) => {
+  if (index === 1) {
+    info.innerHTML = `${Object.values(siteContent.contact)[index].slice(
+      0,
+      18
+    )} <br/> ${Object.values(siteContent.contact)[index].slice(
+      18,
+      Object.values(siteContent.contact)[index].length
+    )}`;
+  } else {
+    info.textContent = Object.values(siteContent.contact)[index];
+  }
+});
 
 // ========== FOOTER ==========
 
