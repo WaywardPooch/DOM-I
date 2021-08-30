@@ -48,10 +48,14 @@ const siteContent = {
 
 // ========== HEADER/NAVIGATION ==========
 
+// Create Nav References
 const nav = document.querySelector("nav");
 const navLogo = document.querySelector("#logo-img");
+
+// Assign logo image to navLogo
 navLogo.setAttribute("src", siteContent.nav["img-src"]);
 
+// Create two additional nav links
 const addedItem1 = document.createElement("a");
 addedItem1.textContent = "Test1";
 nav.prepend(addedItem1);
@@ -60,8 +64,10 @@ const addedItem2 = document.createElement("a");
 addedItem2.textContent = "Test2";
 nav.appendChild(addedItem2);
 
+// Create an array from old and new nav links
 const navLinks = Array.from(document.querySelectorAll("nav a"));
 
+// Iterate through the links to fill their info in and change their color
 navLinks.forEach((link, index) => {
   if (index > 0 && index < 7) {
     link.textContent = siteContent.nav[`nav-item-${index}`];
@@ -73,10 +79,12 @@ navLinks.forEach((link, index) => {
 
 // ========== CTA/MAIN BANNER ==========
 
+// Create CTA references
 const ctaImage = document.querySelector("#cta-img");
 const ctaTitle = document.querySelector(".cta .cta-text h1");
 const ctaButton = document.querySelector(".cta .cta-text button");
 
+// Assign the CTA contents to provided values
 ctaImage.setAttribute("src", siteContent.cta["img-src"]);
 ctaTitle.textContent = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
@@ -166,11 +174,13 @@ sectionMain.bottom.vision.description.textContent =
 
 // ========== CONTACT AREA ==========
 
+// Create an array from the contact area's contents
 const sectionContact = [
   ...document.querySelectorAll(".contact h4"),
   ...document.querySelectorAll(".contact p"),
 ];
 
+// Fill in the contact info from siteContent using a loop
 sectionContact.forEach(
   (info, index) =>
     (info.textContent = Object.values(siteContent.contact)[index])
