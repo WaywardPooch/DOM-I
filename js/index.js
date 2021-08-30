@@ -58,11 +58,93 @@ navLinks.forEach(
 
 // ========== CTA/MAIN BANNER ==========
 
-const sectionCTA = document.querySelector(".cta");
-const ctaTitle = sectionCTA.querySelector(".cta-text h1");
-const ctaButton = sectionCTA.querySelector(".cta-text button");
-const ctaImage = sectionCTA.querySelector("img");
+const ctaImage = document.querySelector("#cta-img");
+const ctaTitle = document.querySelector(".cta .cta-text h1");
+const ctaButton = document.querySelector(".cta .cta-text button");
 
+ctaImage.setAttribute("src", siteContent.cta["img-src"]);
 ctaTitle.textContent = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
-ctaImage.setAttribute("src", siteContent.cta["img-src"]);
+
+// ========== MAIN CONTENT ==========
+
+// Main Content Object (for organization)
+const sectionMain = {
+  top: {
+    features: {
+      heading: document.querySelector(
+        ".main-content .top-content .text-content:nth-of-type(1) h4"
+      ),
+      description: document.querySelector(
+        ".main-content .top-content .text-content:nth-of-type(1) p"
+      ),
+    },
+    about: {
+      heading: document.querySelector(
+        ".main-content .top-content .text-content:nth-of-type(2) h4"
+      ),
+      description: document.querySelector(
+        ".main-content .top-content .text-content:nth-of-type(2) p"
+      ),
+    },
+  },
+  middle: {
+    image: document.querySelector("#middle-img"),
+  },
+  bottom: {
+    services: {
+      heading: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(1) h4"
+      ),
+      description: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(1) p"
+      ),
+    },
+    product: {
+      heading: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(2) h4"
+      ),
+      description: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(2) p"
+      ),
+    },
+    vision: {
+      heading: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(3) h4"
+      ),
+      description: document.querySelector(
+        ".main-content .bottom-content .text-content:nth-of-type(3) p"
+      ),
+    },
+  },
+};
+
+// Top section
+sectionMain.top.features.heading.textContent =
+  siteContent["main-content"]["features-h4"];
+sectionMain.top.features.description.textContent =
+  siteContent["main-content"]["features-content"];
+sectionMain.top.about.heading.textContent =
+  siteContent["main-content"]["about-h4"];
+sectionMain.top.about.description.textContent =
+  siteContent["main-content"]["about-content"];
+
+// Middle section
+sectionMain.middle.image.setAttribute(
+  "src",
+  siteContent["main-content"]["middle-img-src"]
+);
+
+// Bottom section
+sectionMain.bottom.services.heading.textContent =
+  siteContent["main-content"]["services-h4"];
+sectionMain.bottom.services.description.textContent =
+  siteContent["main-content"]["services-content"];
+sectionMain.bottom.product.heading.textContent =
+  siteContent["main-content"]["product-h4"];
+sectionMain.bottom.product.description.textContent =
+  siteContent["main-content"]["product-content"];
+sectionMain.bottom.vision.heading.textContent =
+  siteContent["main-content"]["vision-h4"];
+sectionMain.bottom.vision.description.textContent =
+  siteContent["main-content"]["vision-content"];
