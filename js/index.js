@@ -50,13 +50,18 @@ const siteContent = {
 
 const navLogo = document.querySelector("#logo-img");
 const navLinks = document.querySelectorAll("header nav a");
-
 navLogo.setAttribute("src", siteContent.nav["img-src"]);
+
 navLinks.forEach(
   (link, index) =>
     (link.textContent = siteContent.nav[`nav-item-${index + 1}`]) &&
     (link.style.color = "green")
 );
+
+const nav = document.querySelector("nav");
+const addedNavElement1 = document.createElement("a");
+addedNavElement1.innerHTML = "test";
+nav.appendChild(addedNavElement1);
 
 // ========== CTA/MAIN BANNER ==========
 
