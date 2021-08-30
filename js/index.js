@@ -53,7 +53,9 @@ const navLinks = document.querySelectorAll("header nav a");
 
 navLogo.setAttribute("src", siteContent.nav["img-src"]);
 navLinks.forEach(
-  (link, index) => (link.textContent = siteContent.nav[`nav-item-${index + 1}`])
+  (link, index) =>
+    (link.textContent = siteContent.nav[`nav-item-${index + 1}`]) &&
+    (link.style.color = "green")
 );
 
 // ========== CTA/MAIN BANNER ==========
@@ -149,7 +151,7 @@ sectionMain.bottom.vision.heading.textContent =
 sectionMain.bottom.vision.description.textContent =
   siteContent["main-content"]["vision-content"];
 
-// ========== FOOTER CONTENT ==========
+// ========== CONTACT AREA ==========
 
 const sectionContact = [
   ...document.querySelectorAll(".contact h4"),
@@ -160,3 +162,8 @@ sectionContact.forEach(
   (info, index) =>
     (info.textContent = Object.values(siteContent.contact)[index])
 );
+
+// ========== FOOTER ==========
+
+const copyright = document.querySelector("footer p");
+copyright.textContent = siteContent.footer.copyright;
