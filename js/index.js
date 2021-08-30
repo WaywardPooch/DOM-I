@@ -48,20 +48,28 @@ const siteContent = {
 
 // ========== HEADER/NAVIGATION ==========
 
+const nav = document.querySelector("nav");
 const navLogo = document.querySelector("#logo-img");
-const navLinks = document.querySelectorAll("header nav a");
 navLogo.setAttribute("src", siteContent.nav["img-src"]);
 
-navLinks.forEach(
-  (link, index) =>
-    (link.textContent = siteContent.nav[`nav-item-${index + 1}`]) &&
-    (link.style.color = "green")
-);
+const addedItem1 = document.createElement("a");
+addedItem1.textContent = "Test1";
+nav.prepend(addedItem1);
 
-const nav = document.querySelector("nav");
-const addedNavElement1 = document.createElement("a");
-addedNavElement1.innerHTML = "test";
-nav.appendChild(addedNavElement1);
+const addedItem2 = document.createElement("a");
+addedItem2.textContent = "Test2";
+nav.appendChild(addedItem2);
+
+const navLinks = Array.from(document.querySelectorAll("nav a"));
+
+navLinks.forEach((link, index) => {
+  if (index > 0 && index < 7) {
+    link.textContent = siteContent.nav[`nav-item-${index}`];
+    link.style.color = "green";
+  } else {
+    link.style.color = "green";
+  }
+});
 
 // ========== CTA/MAIN BANNER ==========
 
