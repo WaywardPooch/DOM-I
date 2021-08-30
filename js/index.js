@@ -68,7 +68,7 @@ ctaButton.textContent = siteContent.cta.button;
 
 // ========== MAIN CONTENT ==========
 
-// Main Content Object (for organization)
+// Main Content Reference Object (for organization)
 const sectionMain = {
   top: {
     features: {
@@ -148,3 +148,15 @@ sectionMain.bottom.vision.heading.textContent =
   siteContent["main-content"]["vision-h4"];
 sectionMain.bottom.vision.description.textContent =
   siteContent["main-content"]["vision-content"];
+
+// ========== FOOTER CONTENT ==========
+
+const sectionContact = [
+  ...document.querySelectorAll(".contact h4"),
+  ...document.querySelectorAll(".contact p"),
+];
+
+sectionContact.forEach(
+  (info, index) =>
+    (info.textContent = Object.values(siteContent.contact)[index])
+);
