@@ -185,6 +185,7 @@ const sectionContact = [
 
 // Fill in the contact info from siteContent using a loop
 sectionContact.forEach((info, index) => {
+  // If touching the street address, break it up on two lines...
   if (index === 1) {
     info.innerHTML = `${Object.values(siteContent.contact)[index].slice(
       0,
@@ -194,6 +195,7 @@ sectionContact.forEach((info, index) => {
       Object.values(siteContent.contact)[index].length
     )}`;
   } else {
+    // ...otherwise, just add info straight from siteContent
     info.textContent = Object.values(siteContent.contact)[index];
   }
 });
